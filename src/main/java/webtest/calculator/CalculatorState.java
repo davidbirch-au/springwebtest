@@ -8,20 +8,12 @@ public class CalculatorState {
 
 	private static final Logger LOG = Logger.getLogger(CalculatorState.class);
 	
-	private BigDecimal currentValue = new BigDecimal("0.00");
-	private String history = "";
+	protected BigDecimal currentValue = new BigDecimal("0.00");
+	protected String history = "";
 	
 	public CalculatorState() {
 		LOG.info("CalculatorState.created");
 		this.clear();
-	}
-	
-	public void add(BigDecimal aValue) {
-		currentValue.add(aValue); //mistake
-	}
-	
-	public void subtract(BigDecimal aValue) {
-		currentValue.subtract(aValue); //mistake
 	}
 	
 	public BigDecimal getValue() {
@@ -35,17 +27,5 @@ public class CalculatorState {
 	public void clear() {
 		currentValue = new BigDecimal("0.00");
 		String history = "";
-	}
-	
-	public void doOperation(String operation, String value) {
-		
-		if(operation.equals("Add")) {
-			this.add(new BigDecimal(value));
-		} else if (operation.equals("Subtract")) {
-			this.subtract(new BigDecimal(value));
-		} else if (operation.equals("Clear")) {
-			this.clear();
-		}
-		
 	}
 }
